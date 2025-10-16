@@ -105,9 +105,10 @@ const CustomerDashboard = () => {
 
         <div className="space-y-3">
           {featuredProviders.map((provider) => (
-            <div
+            <button
               key={provider.id}
-              className="bg-card rounded-2xl p-4 shadow-soft border border-border hover:shadow-medium transition-smooth"
+              onClick={() => navigate("/booking")}
+              className="w-full bg-card rounded-2xl p-4 shadow-soft border border-border hover:shadow-medium transition-smooth text-left"
             >
               <div className="flex gap-4">
                 <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center text-3xl flex-shrink-0">
@@ -145,7 +146,7 @@ const CustomerDashboard = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
@@ -157,7 +158,10 @@ const CustomerDashboard = () => {
             <Home className="w-6 h-6" fill="currentColor" />
             <span className="text-xs font-medium">Home</span>
           </button>
-          <button className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth">
+          <button
+            onClick={() => navigate("/bookings")}
+            className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth"
+          >
             <Clock className="w-6 h-6" />
             <span className="text-xs font-medium">Bookings</span>
           </button>

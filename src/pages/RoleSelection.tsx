@@ -11,9 +11,9 @@ const RoleSelection = () => {
 
   const handleContinue = () => {
     if (selectedRole === "customer") {
-      navigate("/customer");
+      navigate("/customer-onboarding");
     } else if (selectedRole === "provider") {
-      navigate("/provider");
+      navigate("/provider-onboarding");
     }
   };
 
