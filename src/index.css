@@ -90,6 +90,9 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-inter antialiased;
     font-feature-settings: 'cv11', 'ss01';
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    overflow-x: hidden;
   }
 
   /* Mobile app feel */
@@ -98,6 +101,13 @@ All colors MUST be HSL.
     max-width: 480px;
     margin: 0 auto;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mobile-specific typography */
+  @media (max-width: 480px) {
+    html {
+      font-size: 14px;
+    }
   }
 }
 
@@ -128,5 +138,15 @@ All colors MUST be HSL.
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Remove scrollbar for horizontal scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
