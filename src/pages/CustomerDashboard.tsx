@@ -71,11 +71,15 @@ const CustomerDashboard = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="relative">
+        <div
+          onClick={() => navigate("/search")}
+          className="relative cursor-pointer"
+        >
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <Input
             placeholder="Search for services..."
             className="pl-12 h-14 bg-card border-0 shadow-soft focus:ring-2 focus:ring-primary/20"
+            readOnly
           />
         </div>
       </div>
@@ -87,6 +91,7 @@ const CustomerDashboard = () => {
           {categories.map((category) => (
             <button
               key={category.name}
+              onClick={() => navigate("/search")}
               className="bg-card rounded-2xl p-4 text-center hover:shadow-medium transition-smooth border border-border"
             >
               <div className="text-3xl mb-2">{category.icon}</div>

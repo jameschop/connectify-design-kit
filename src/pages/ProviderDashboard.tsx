@@ -87,12 +87,18 @@ const ProviderDashboard = () => {
       <div className="px-6 pb-6">
         <h2 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h2>
         <div className="grid grid-cols-2 gap-3">
-          <button className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border">
+          <button
+            onClick={() => navigate("/manage-bookings")}
+            className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
+          >
             <div className="text-2xl mb-2">📅</div>
             <div className="text-sm font-semibold text-foreground">Manage Bookings</div>
             <div className="text-xs text-muted-foreground mt-1">View & update</div>
           </button>
-          <button className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border">
+          <button
+            onClick={() => navigate("/availability")}
+            className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
+          >
             <div className="text-2xl mb-2">⏰</div>
             <div className="text-sm font-semibold text-foreground">Availability</div>
             <div className="text-xs text-muted-foreground mt-1">Set schedule</div>
@@ -120,7 +126,12 @@ const ProviderDashboard = () => {
       <div className="px-6 pb-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-foreground">Upcoming Jobs</h2>
-          <button className="text-sm text-primary font-medium">See all</button>
+          <button
+            onClick={() => navigate("/manage-bookings")}
+            className="text-sm text-primary font-medium"
+          >
+            See all
+          </button>
         </div>
 
         <div className="space-y-3">
@@ -170,7 +181,10 @@ const ProviderDashboard = () => {
             <Home className="w-6 h-6" fill="currentColor" />
             <span className="text-xs font-medium">Home</span>
           </button>
-          <button className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth">
+          <button
+            onClick={() => navigate("/manage-bookings")}
+            className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth"
+          >
             <Calendar className="w-6 h-6" />
             <span className="text-xs font-medium">Jobs</span>
           </button>

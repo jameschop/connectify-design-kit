@@ -13,6 +13,8 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 import ProviderDashboard from "./pages/ProviderDashboard";
 import BookingFlow from "./pages/BookingFlow";
 import Bookings from "./pages/Bookings";
+import ManageBookings from "./pages/ManageBookings";
+import Availability from "./pages/Availability";
 import ServiceDetail from "./pages/ServiceDetail";
 import SearchResults from "./pages/SearchResults";
 import Notifications from "./pages/Notifications";
@@ -41,6 +43,8 @@ const App = () => (
           <Route path="/provider" element={<ProviderDashboard />} />
           <Route path="/booking" element={<BookingFlow />} />
           <Route path="/bookings" element={<Bookings />} />
+          <Route path="/manage-bookings" element={<ManageBookings />} />
+          <Route path="/availability" element={<Availability />} />
           <Route path="/service/:id" element={<ServiceDetail />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/notifications" element={<Notifications />} />
