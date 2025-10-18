@@ -104,7 +104,7 @@ const ProviderDashboard = () => {
             <div className="text-xs text-muted-foreground mt-1">Set schedule</div>
           </button>
           <button
-            onClick={() => navigate("/wallet")}
+            onClick={() => navigate("/wallet/provider")}
             className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
           >
             <div className="text-2xl mb-2">💰</div>
@@ -189,7 +189,7 @@ const ProviderDashboard = () => {
             <span className="text-xs font-medium">Jobs</span>
           </button>
           <button
-            onClick={() => navigate("/wallet")}
+            onClick={() => navigate("/wallet/provider")}
             className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth"
           >
             <TrendingUp className="w-6 h-6" />

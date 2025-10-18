@@ -171,7 +171,7 @@ const CustomerDashboard = () => {
             <span className="text-xs font-medium">Bookings</span>
           </button>
           <button
-            onClick={() => navigate("/wallet")}
+            onClick={() => navigate("/wallet/customer")}
             className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth"
           >
             <TrendingUp className="w-6 h-6" />
