@@ -2,10 +2,29 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, MapPin, Star, MessageCircle } from "lucide-react";
+import { toast } from "sonner";
 
 const Bookings = () => {
   const [activeTab, setActiveTab] = useState<"upcoming" | "completed">("upcoming");
   const navigate = useNavigate();
+
+  const handleReschedule = (bookingId: number) => {
+    toast.info("Opening reschedule options...");
+  };
+
+  const handleChat = (providerName: string) => {
+    navigate("/messages");
+    toast.success(`Opening chat with ${providerName}`);
+  };
+
+  const handleBookAgain = (providerName: string) => {
+    navigate("/booking");
+    toast.success(`Booking ${providerName} again...`);
+  };
+
+  const handleReview = (providerName: string) => {
+    toast.info(`Write a review for ${providerName}`);
+  };
 
   const upcomingBookings = [
     {
@@ -147,10 +166,17 @@ const Bookings = () => {
             </div>
 
             <div className="flex gap-2">
-              <Button variant="outline" className="flex-1 h-9 text-sm">
+              <Button 
+                variant="outline" 
+                className="flex-1 h-9 text-sm"
+                onClick={() => handleReschedule(booking.id)}
+              >
                 Reschedule
               </Button>
-              <Button className="flex-1 h-9 gradient-primary border-0 text-sm">
+              <Button 
+                className="flex-1 h-9 gradient-primary border-0 text-sm"
+                onClick={() => handleChat(booking.provider)}
+              >
                 <MessageCircle className="w-4 h-4 mr-1" />
                 Chat
               </Button>
@@ -199,10 +225,18 @@ const Bookings = () => {
             </div>
 
             <div className="flex gap-2 mt-4">
-              <Button variant="outline" className="flex-1 h-9 text-sm">
+              <Button 
+                variant="outline" 
+                className="flex-1 h-9 text-sm"
+                onClick={() => handleBookAgain(booking.provider)}
+              >
                 Book Again
               </Button>
-              <Button variant="outline" className="flex-1 h-9 text-sm">
+              <Button 
+                variant="outline" 
+                className="flex-1 h-9 text-sm"
+                onClick={() => handleReview(booking.provider)}
+              >
                 Write Review
               </Button>
             </div>

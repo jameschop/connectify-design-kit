@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowUpRight, Plus, Wallet as WalletIcon, CreditCard } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const transactions = [
   {
@@ -44,6 +45,22 @@ const transactions = [
 const CustomerWallet = () => {
   const navigate = useNavigate();
 
+  const handleTopUp = () => {
+    toast.success("Payment gateway opened! Processing top-up...");
+  };
+
+  const handleManageCards = () => {
+    toast.info("Card management feature coming soon!");
+  };
+
+  const handleQuickTopUp = (amount: string) => {
+    toast.success(`Adding ${amount} to your wallet...`);
+  };
+
+  const handleViewAll = () => {
+    toast.info("Showing all transactions...");
+  };
+
   return (
     <div className="min-h-screen bg-background pb-6">
       {/* Header */}
@@ -64,11 +81,17 @@ const CustomerWallet = () => {
 
         {/* Action Buttons */}
         <div className="flex gap-3">
-          <Button className="flex-1 h-12 bg-white text-primary hover:bg-white/90 font-semibold shadow-medium">
+          <Button 
+            onClick={handleTopUp}
+            className="flex-1 h-12 bg-white text-primary hover:bg-white/90 font-semibold shadow-medium"
+          >
             <Plus className="w-5 h-5 mr-2" />
             Top Up
           </Button>
-          <Button className="flex-1 h-12 bg-white/20 text-white hover:bg-white/30 border-0 font-semibold backdrop-blur-sm">
+          <Button 
+            onClick={handleManageCards}
+            className="flex-1 h-12 bg-white/20 text-white hover:bg-white/30 border-0 font-semibold backdrop-blur-sm"
+          >
             <CreditCard className="w-5 h-5 mr-2" />
             Cards
           </Button>
@@ -98,6 +121,7 @@ const CustomerWallet = () => {
           {['₦5,000', '₦10,000', '₦20,000'].map((amount) => (
             <button
               key={amount}
+              onClick={() => handleQuickTopUp(amount)}
               className="bg-card rounded-2xl p-4 shadow-soft border border-border hover:shadow-medium hover:border-primary/30 transition-smooth"
             >
               <div className="text-xl font-bold text-foreground">{amount}</div>
@@ -110,7 +134,12 @@ const CustomerWallet = () => {
       <div className="px-6 pb-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-foreground">Recent Transactions</h2>
-          <button className="text-sm text-primary font-medium">View all</button>
+          <button 
+            onClick={handleViewAll}
+            className="text-sm text-primary font-medium"
+          >
+            View all
+          </button>
         </div>
 
         <div className="space-y-2">

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Calendar, Star, MapPin, Clock, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const stats = [
   { label: "Earnings", value: "₦234,500", icon: TrendingUp, change: "+12%" },
@@ -29,6 +30,14 @@ const upcomingJobs = [
 
 const ProviderDashboard = () => {
   const navigate = useNavigate();
+
+  const handleAccept = (customerName: string) => {
+    toast.success(`Booking accepted for ${customerName}!`);
+  };
+
+  const handleReschedule = (customerName: string) => {
+    toast.info(`Opening reschedule options for ${customerName}...`);
+  };
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -162,10 +171,17 @@ const ProviderDashboard = () => {
               </div>
 
               <div className="flex gap-2 mt-4">
-                <Button className="flex-1 h-9 gradient-primary border-0 text-sm">
+                <Button 
+                  className="flex-1 h-9 gradient-primary border-0 text-sm"
+                  onClick={() => handleAccept(job.customer)}
+                >
                   Accept
                 </Button>
-                <Button variant="outline" className="flex-1 h-9 text-sm">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 h-9 text-sm"
+                  onClick={() => handleReschedule(job.customer)}
+                >
                   Reschedule
                 </Button>
               </div>
