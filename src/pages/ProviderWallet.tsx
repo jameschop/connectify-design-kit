@@ -59,104 +59,123 @@ const Wallet = () => {
 
   return (
     <div className="min-h-screen bg-background pb-6">
-      {/* Header */}
-      <div className="gradient-primary px-6 pt-12 pb-8 rounded-b-3xl">
+      {/* Professional Header */}
+      <div className="bg-card border-b border-border px-6 pt-12 pb-6">
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white"
+          className="mb-6 w-10 h-10 rounded-xl bg-muted flex items-center justify-center hover:bg-muted/80 transition-smooth"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
 
-        {/* Balance Card */}
-        <div className="text-center text-white mb-6">
-          <p className="text-sm opacity-90 mb-2">Total Balance</p>
-          <h1 className="text-5xl font-bold mb-1 animate-fade-in">₦234,500</h1>
-          <p className="text-xs opacity-75">+₦12,000 this week</p>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <p className="text-sm text-muted-foreground mb-1">Business Wallet</p>
+            <h1 className="text-4xl font-bold text-foreground animate-fade-in">₦234,500</h1>
+          </div>
+          <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center">
+            <ArrowDownLeft className="w-8 h-8 text-accent" />
+          </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3">
-          <Button 
-            onClick={handleAddFunds}
-            className="flex-1 h-12 bg-white text-primary hover:bg-white/90 font-semibold shadow-medium"
-          >
-            <Plus className="w-5 h-5 mr-2" />
-            Add Funds
-          </Button>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-accent font-semibold">↑ +₦12,000</span>
+          <span className="text-muted-foreground">this week</span>
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="px-6 py-6">
+        <div className="grid grid-cols-2 gap-3">
           <Button 
             onClick={handleWithdraw}
-            className="flex-1 h-12 bg-white/20 text-white hover:bg-white/30 border-0 font-semibold backdrop-blur-sm"
+            className="h-14 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-medium rounded-2xl"
           >
             <Send className="w-5 h-5 mr-2" />
             Withdraw
           </Button>
+          <Button 
+            onClick={handleAddFunds}
+            variant="outline"
+            className="h-14 font-semibold rounded-2xl"
+          >
+            <Plus className="w-5 h-5 mr-2" />
+            Add Funds
+          </Button>
         </div>
       </div>
 
-      {/* Quick Stats */}
-      <div className="px-6 py-6">
+      {/* Business Stats */}
+      <div className="px-6 pb-6">
+        <h3 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Performance</h3>
         <div className="grid grid-cols-2 gap-3">
-          <div className="bg-card rounded-2xl p-4 shadow-soft border border-border">
-            <div className="text-sm text-muted-foreground mb-1">This Month</div>
-            <div className="text-2xl font-bold text-foreground">₦89,500</div>
-            <div className="text-xs text-accent font-medium mt-1">+24% from last</div>
+          <div className="bg-card rounded-2xl p-5 shadow-soft border border-border">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 rounded-full bg-accent" />
+              <div className="text-xs text-muted-foreground">Revenue</div>
+            </div>
+            <div className="text-3xl font-bold text-foreground mb-1">₦89,500</div>
+            <div className="text-xs text-accent font-semibold">+24% vs last month</div>
           </div>
-          <div className="bg-card rounded-2xl p-4 shadow-soft border border-border">
-            <div className="text-sm text-muted-foreground mb-1">Withdrawn</div>
-            <div className="text-2xl font-bold text-foreground">₦150,000</div>
-            <div className="text-xs text-muted-foreground mt-1">3 transactions</div>
+          <div className="bg-card rounded-2xl p-5 shadow-soft border border-border">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <div className="text-xs text-muted-foreground">Withdrawn</div>
+            </div>
+            <div className="text-3xl font-bold text-foreground mb-1">₦150K</div>
+            <div className="text-xs text-muted-foreground">3 transfers</div>
           </div>
         </div>
       </div>
 
-      {/* Transactions */}
+      {/* Transaction History */}
       <div className="px-6 pb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-foreground">Recent Transactions</h2>
+          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Transaction History</h3>
           <button 
             onClick={handleViewAll}
-            className="text-sm text-primary font-medium"
+            className="text-sm text-primary font-semibold hover:underline"
           >
-            View all
+            View All
           </button>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           {transactions.map((transaction) => (
             <div
               key={transaction.id}
-              className="bg-card rounded-2xl p-4 shadow-soft border border-border hover:shadow-medium transition-smooth"
+              className="bg-card rounded-xl p-4 border border-border hover:border-primary/30 hover:shadow-soft transition-smooth"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                     transaction.type === "credit"
                       ? "bg-accent/10 text-accent"
-                      : "bg-muted text-muted-foreground"
+                      : "bg-muted"
                   }`}
                 >
-                  <transaction.icon className="w-5 h-5" />
+                  <transaction.icon className="w-4 h-4" />
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground text-sm">
-                    {transaction.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-1">
+                    <h3 className="font-semibold text-foreground text-sm">
+                      {transaction.title}
+                    </h3>
+                    <div
+                      className={`text-sm font-bold ${
+                        transaction.type === "credit" ? "text-accent" : "text-foreground"
+                      }`}
+                    >
+                      {transaction.amount}
+                    </div>
+                  </div>
                   <p className="text-xs text-muted-foreground truncate">
                     {transaction.subtitle}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p className="text-xs text-muted-foreground/70 mt-0.5">
                     {transaction.date}
                   </p>
-                </div>
-
-                <div
-                  className={`text-right font-semibold ${
-                    transaction.type === "credit" ? "text-accent" : "text-foreground"
-                  }`}
-                >
-                  {transaction.amount}
                 </div>
               </div>
             </div>
@@ -166,15 +185,17 @@ const Wallet = () => {
 
       {/* Security Notice */}
       <div className="px-6">
-        <div className="bg-muted/50 rounded-2xl p-4">
+        <div className="bg-accent/5 rounded-2xl p-4 border border-accent/20">
           <div className="flex items-start gap-3">
-            <div className="text-2xl">🔒</div>
+            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <span className="text-lg">🔒</span>
+            </div>
             <div className="flex-1">
               <h4 className="text-sm font-semibold text-foreground mb-1">
-                Your money is safe
+                Bank-Grade Security
               </h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                All transactions are protected with bank-grade security. Your funds are insured and encrypted.
+                Your earnings are protected with enterprise-level encryption. All withdrawals are processed securely and verified.
               </p>
             </div>
           </div>
