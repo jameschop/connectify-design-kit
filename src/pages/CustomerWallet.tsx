@@ -62,85 +62,72 @@ const CustomerWallet = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background pb-6">
+    <div className="min-h-screen bg-background pb-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-primary via-primary to-accent px-6 pt-12 pb-32 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-        
+      <div className="gradient-primary px-6 pt-12 pb-8 rounded-b-3xl">
         <button
           onClick={() => navigate(-1)}
-          className="relative mb-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-smooth"
+          className="mb-6 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-smooth"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
 
         {/* Balance Card */}
-        <div className="relative text-center text-white mb-6">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <WalletIcon className="w-5 h-5 opacity-90" />
-            <p className="text-sm opacity-90">My Wallet</p>
+        <div className="text-center text-white mb-6">
+          <div className="inline-flex items-center gap-2 mb-2 opacity-90">
+            <WalletIcon className="w-5 h-5" />
+            <p className="text-sm">My Wallet</p>
           </div>
-          <h1 className="text-6xl font-bold mb-2 animate-fade-in tracking-tight">₦45,000</h1>
-          <p className="text-sm opacity-80">Ready for your next booking</p>
+          <h1 className="text-5xl font-bold mb-1 animate-fade-in">₦45,000</h1>
+          <p className="text-xs opacity-75">Ready for your next booking</p>
         </div>
-      </div>
 
-      {/* Action Card - Overlapping */}
-      <div className="px-6 -mt-20 relative z-10">
-        <div className="bg-card rounded-3xl p-6 shadow-xl border border-border">
-          <div className="grid grid-cols-2 gap-3">
-            <Button 
-              onClick={handleTopUp}
-              className="h-14 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-medium rounded-2xl"
-            >
-              <Plus className="w-5 h-5 mr-2" />
-              Top Up
-            </Button>
-            <Button 
-              onClick={handleManageCards}
-              variant="outline"
-              className="h-14 font-semibold rounded-2xl"
-            >
-              <CreditCard className="w-5 h-5 mr-2" />
-              Cards
-            </Button>
-          </div>
+        {/* Action Buttons */}
+        <div className="flex gap-3">
+          <Button 
+            onClick={handleTopUp}
+            className="flex-1 h-12 bg-white text-primary hover:bg-white/90 font-semibold shadow-medium"
+          >
+            <Plus className="w-5 h-5 mr-2" />
+            Top Up
+          </Button>
+          <Button 
+            onClick={handleManageCards}
+            className="flex-1 h-12 bg-white/20 text-white hover:bg-white/30 border-0 font-semibold backdrop-blur-sm"
+          >
+            <CreditCard className="w-5 h-5 mr-2" />
+            Cards
+          </Button>
         </div>
       </div>
 
       {/* Quick Stats */}
       <div className="px-6 py-6">
         <div className="grid grid-cols-2 gap-3">
-          <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-5 border border-primary/20">
-            <div className="text-xs text-muted-foreground mb-1">Spent This Month</div>
+          <div className="bg-card rounded-2xl p-4 shadow-soft border border-border">
+            <div className="text-sm text-muted-foreground mb-1">This Month</div>
             <div className="text-2xl font-bold text-foreground">₦32,500</div>
-            <div className="text-xs text-primary font-medium mt-1">5 bookings</div>
+            <div className="text-xs text-muted-foreground mt-1">5 bookings</div>
           </div>
-          <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-5 border border-accent/20">
-            <div className="text-xs text-muted-foreground mb-1">You've Saved</div>
-            <div className="text-2xl font-bold text-accent">₦8,750</div>
-            <div className="text-xs text-accent/70 font-medium mt-1">from deals</div>
+          <div className="bg-card rounded-2xl p-4 shadow-soft border border-border">
+            <div className="text-sm text-muted-foreground mb-1">Total Saved</div>
+            <div className="text-2xl font-bold text-foreground">₦8,750</div>
+            <div className="text-xs text-accent font-medium mt-1">via discounts</div>
           </div>
         </div>
       </div>
 
       {/* Quick Top-up */}
       <div className="px-6 pb-6">
-        <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span className="w-1 h-6 bg-primary rounded-full" />
-          Quick Top-up
-        </h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">Quick Top-up</h2>
         <div className="grid grid-cols-3 gap-3">
           {['₦5,000', '₦10,000', '₦20,000'].map((amount) => (
             <button
               key={amount}
               onClick={() => handleQuickTopUp(amount)}
-              className="bg-card rounded-2xl p-5 shadow-soft border border-border hover:shadow-lg hover:border-primary hover:scale-105 transition-smooth group"
+              className="bg-card rounded-2xl p-4 shadow-soft border border-border hover:shadow-medium hover:border-primary/30 transition-smooth"
             >
-              <div className="text-sm text-muted-foreground mb-1 group-hover:text-primary transition-colors">Add</div>
-              <div className="text-lg font-bold text-foreground">{amount}</div>
+              <div className="text-xl font-bold text-foreground">{amount}</div>
             </button>
           ))}
         </div>
@@ -149,15 +136,12 @@ const CustomerWallet = () => {
       {/* Transactions */}
       <div className="px-6 pb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-            <span className="w-1 h-6 bg-primary rounded-full" />
-            Recent Activity
-          </h2>
+          <h2 className="text-lg font-semibold text-foreground">Recent Transactions</h2>
           <button 
             onClick={handleViewAll}
-            className="text-sm text-primary font-semibold hover:underline"
+            className="text-sm text-primary font-medium"
           >
-            See All
+            View all
           </button>
         </div>
 
