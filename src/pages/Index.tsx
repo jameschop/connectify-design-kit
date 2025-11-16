@@ -16,38 +16,40 @@ const Index = () => {
             alt="Service marketplace"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/70 to-navy/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         </div>
 
         <div className="relative w-full px-6 py-12 text-center">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-              <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span className="text-xs text-white">Trusted by 50,000+ Nigerians</span>
+          <div className="space-y-8 max-w-xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 shadow-soft">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-white">Trusted by 50,000+ Nigerians</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight px-2 drop-shadow-lg">
               Find trusted services,
               <br />
-              <span className="text-primary">anytime, anywhere</span>
+              <span className="text-primary drop-shadow-glow">anytime, anywhere</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-white/80 max-w-md mx-auto px-4">
+            <p className="text-lg sm:text-xl text-white/90 max-w-lg mx-auto px-2 leading-relaxed drop-shadow-md">
               Connect with verified professionals for home services, tutoring, repairs, and more.
             </p>
 
-            <div className="flex flex-col gap-3 pt-4 px-4">
+            <div className="flex flex-col gap-3 pt-6 px-2">
               <Button
                 onClick={() => navigate("/onboarding")}
-                className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold shadow-glow"
+                size="lg"
+                className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-semibold text-base shadow-strong hover:shadow-glow transition-smooth"
               >
                 Get Started
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button
                 variant="outline"
+                size="lg"
                 onClick={() => navigate("/auth")}
-                className="w-full h-12 bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+                className="w-full h-14 bg-white/15 border-white/30 text-white hover:bg-white/25 backdrop-blur-md font-medium text-base transition-smooth"
               >
                 Sign In
               </Button>
@@ -57,38 +59,38 @@ const Index = () => {
       </div>
 
       {/* Features Section */}
-      <div className="py-12 px-6">
-        <h2 className="text-2xl font-bold text-center text-foreground mb-8">
+      <div className="py-16 px-6 bg-background">
+        <h2 className="text-3xl font-bold text-center text-foreground mb-12">
           Why Choose Connectify?
         </h2>
 
-        <div className="space-y-4">
-          <div className="p-5 rounded-2xl bg-card border border-border">
-            <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-3">
-              <Shield className="w-6 h-6 text-white" />
+        <div className="space-y-5 max-w-2xl mx-auto">
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-medium transition-smooth">
+            <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-soft">
+              <Shield className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">Verified Professionals</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Verified Professionals</h3>
+            <p className="text-base text-muted-foreground leading-relaxed">
               All service providers are verified and background-checked for your safety.
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-card border border-border">
-            <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-3">
-              <Clock className="w-6 h-6 text-white" />
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-medium transition-smooth">
+            <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-soft">
+              <Clock className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">Quick Booking</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Quick Booking</h3>
+            <p className="text-base text-muted-foreground leading-relaxed">
               Book services in minutes and get instant confirmation from providers.
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-card border border-border">
-            <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-3">
-              <Star className="w-6 h-6 text-white" />
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-medium transition-smooth">
+            <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-soft">
+              <Star className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">Trusted Reviews</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Trusted Reviews</h3>
+            <p className="text-base text-muted-foreground leading-relaxed">
               Read authentic reviews from real customers to make informed decisions.
             </p>
           </div>
