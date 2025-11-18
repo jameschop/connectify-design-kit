@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Star, MapPin, Briefcase, Phone, Mail, Edit } from "lucide-react";
+import { ArrowLeft, Star, MapPin, Briefcase, Phone, Mail, Edit, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
@@ -8,31 +8,31 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-background pb-6">
       {/* Header */}
-      <div className="gradient-card px-6 pt-12 pb-8 rounded-b-3xl">
+      <div className="gradient-primary px-6 pt-12 pb-8 rounded-b-3xl relative overflow-hidden">
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 w-10 h-10 rounded-full bg-card flex items-center justify-center shadow-soft"
+          className="mb-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-soft hover:bg-white/30 transition-smooth"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-5 h-5 text-white" />
         </button>
 
         {/* Profile Info */}
         <div className="text-center">
           <div className="relative inline-block mb-4">
-            <div className="w-24 h-24 rounded-full gradient-primary flex items-center justify-center text-5xl shadow-strong">
-              👩🏾
+            <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-strong">
+              <User className="w-12 h-12 text-white" />
             </div>
-            <button className="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-medium">
+            <button className="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center shadow-medium hover:bg-white/90 transition-smooth">
               <Edit className="w-4 h-4" />
             </button>
           </div>
 
-          <h1 className="text-2xl font-bold text-foreground mb-1">Chioma Nwosu</h1>
-          <p className="text-sm text-muted-foreground mb-3">Professional Cleaner</p>
+          <h1 className="text-2xl font-bold text-white mb-1 drop-shadow-md">Chioma Nwosu</h1>
+          <p className="text-sm text-white/80 mb-3">Professional Cleaner</p>
 
-          <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20">
-            <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="text-xs font-medium text-accent">Verified Provider</span>
+          <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
+            <span className="w-2 h-2 rounded-full bg-white" />
+            <span className="text-xs font-medium text-white">Verified Provider</span>
           </div>
         </div>
       </div>

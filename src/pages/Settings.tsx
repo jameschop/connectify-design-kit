@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { ArrowLeft, ChevronRight, User, Bell, Shield, Globe, HelpCircle, LogOut } from "lucide-react";
+import { ArrowLeft, ChevronRight, User, Bell, Shield, Globe, HelpCircle, LogOut, Moon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -55,17 +55,17 @@ const Settings = () => {
   return (
     <div className="min-h-screen bg-background pb-6">
       {/* Header */}
-      <div className="gradient-card px-6 pt-12 pb-6 rounded-b-3xl">
+      <div className="gradient-primary px-6 pt-12 pb-6 rounded-b-3xl relative overflow-hidden">
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 w-10 h-10 rounded-full bg-card flex items-center justify-center shadow-soft"
+          className="mb-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-soft hover:bg-white/30 transition-smooth"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-5 h-5 text-white" />
         </button>
 
         <div>
-          <h1 className="text-2xl font-bold text-foreground mb-1">Settings</h1>
-          <p className="text-sm text-muted-foreground">Manage your account preferences</p>
+          <h1 className="text-2xl font-bold text-white mb-1 drop-shadow-md">Settings</h1>
+          <p className="text-sm text-white/80">Manage your account preferences</p>
         </div>
       </div>
 
@@ -77,8 +77,8 @@ const Settings = () => {
         <div className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden">
           <div className="flex items-center justify-between p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center">
-                <span className="text-lg">🌙</span>
+              <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-soft">
+                <Moon className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="font-medium text-foreground">Dark Mode</div>
