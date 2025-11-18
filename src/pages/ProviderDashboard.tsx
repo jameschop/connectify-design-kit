@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Calendar, Star, MapPin, Clock, Home } from "lucide-react";
+import { TrendingUp, Calendar, Star, MapPin, Clock, Home, User, CalendarCheck, Wallet, MapPinned, BarChart3, MessageSquare, Bell, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -42,23 +42,23 @@ const ProviderDashboard = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
-      <div className="gradient-card px-6 pt-12 pb-6 rounded-b-3xl">
+      <div className="gradient-primary px-6 pt-12 pb-6 rounded-b-3xl relative overflow-hidden">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">
+            <h1 className="text-2xl font-bold text-white drop-shadow-md">
               Your Dashboard
             </h1>
-            <p className="text-sm text-muted-foreground mt-1">Track your business growth</p>
+            <p className="text-sm text-white/80 mt-1">Track your business growth</p>
           </div>
           <div className="flex items-center gap-2">
-            <div className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20">
-              <span className="text-xs font-medium text-accent">● Online</span>
+            <div className="px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
+              <span className="text-xs font-medium text-white">● Online</span>
             </div>
             <button
               onClick={() => navigate("/profile")}
-              className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-2xl shadow-medium"
+              className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth"
             >
-              👩🏾
+              <User className="w-6 h-6 text-white" />
             </button>
           </div>
         </div>
@@ -100,7 +100,9 @@ const ProviderDashboard = () => {
             onClick={() => navigate("/manage-bookings")}
             className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
           >
-            <div className="text-2xl mb-2">📅</div>
+            <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center mb-3 shadow-soft">
+              <CalendarCheck className="w-5 h-5 text-white" />
+            </div>
             <div className="text-sm font-semibold text-foreground">Manage Bookings</div>
             <div className="text-xs text-muted-foreground mt-1">View & update</div>
           </button>
@@ -108,7 +110,9 @@ const ProviderDashboard = () => {
             onClick={() => navigate("/availability")}
             className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
           >
-            <div className="text-2xl mb-2">⏰</div>
+            <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center mb-3 shadow-soft">
+              <Clock className="w-5 h-5 text-white" />
+            </div>
             <div className="text-sm font-semibold text-foreground">Availability</div>
             <div className="text-xs text-muted-foreground mt-1">Set schedule</div>
           </button>
@@ -116,7 +120,9 @@ const ProviderDashboard = () => {
             onClick={() => navigate("/wallet/provider")}
             className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
           >
-            <div className="text-2xl mb-2">💰</div>
+            <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center mb-3 shadow-soft">
+              <Wallet className="w-5 h-5 text-white" />
+            </div>
             <div className="text-sm font-semibold text-foreground">Wallet</div>
             <div className="text-xs text-muted-foreground mt-1">₦234,500</div>
           </button>
@@ -124,7 +130,9 @@ const ProviderDashboard = () => {
             onClick={() => navigate("/profile")}
             className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
           >
-            <div className="text-2xl mb-2">👤</div>
+            <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center mb-3 shadow-soft">
+              <User className="w-5 h-5 text-white" />
+            </div>
             <div className="text-sm font-semibold text-foreground">Profile</div>
             <div className="text-xs text-muted-foreground mt-1">Edit details</div>
           </button>

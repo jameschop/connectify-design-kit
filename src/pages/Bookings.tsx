@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, MapPin, Star, MessageCircle } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, MapPin, Star, MessageCircle, User } from "lucide-react";
 import { toast } from "sonner";
 
 const Bookings = () => {
@@ -79,27 +79,27 @@ const Bookings = () => {
   return (
     <div className="min-h-screen bg-background pb-6">
       {/* Header */}
-      <div className="gradient-card px-6 pt-12 pb-6 rounded-b-3xl">
+      <div className="gradient-primary px-6 pt-12 pb-6 rounded-b-3xl relative overflow-hidden">
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 w-10 h-10 rounded-full bg-card flex items-center justify-center shadow-soft"
+          className="mb-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-soft hover:bg-white/30 transition-smooth"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-5 h-5 text-white" />
         </button>
 
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-foreground mb-1">My Bookings</h1>
-          <p className="text-sm text-muted-foreground">Manage your service appointments</p>
+          <h1 className="text-2xl font-bold text-white mb-1 drop-shadow-md">My Bookings</h1>
+          <p className="text-sm text-white/80">Manage your service appointments</p>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-2 p-1 bg-muted rounded-xl">
+        <div className="flex gap-2 p-1 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
           <button
             onClick={() => setActiveTab("upcoming")}
             className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-smooth ${
               activeTab === "upcoming"
-                ? "bg-card text-foreground shadow-soft"
-                : "text-muted-foreground"
+                ? "bg-white text-primary shadow-soft"
+                : "text-white/80"
             }`}
           >
             Upcoming ({upcomingBookings.length})
@@ -108,8 +108,8 @@ const Bookings = () => {
             onClick={() => setActiveTab("completed")}
             className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-smooth ${
               activeTab === "completed"
-                ? "bg-card text-foreground shadow-soft"
-                : "text-muted-foreground"
+                ? "bg-white text-primary shadow-soft"
+                : "text-white/80"
             }`}
           >
             Completed ({completedBookings.length})
@@ -120,13 +120,13 @@ const Bookings = () => {
       {/* Bookings List */}
       <div className="px-6 py-6 space-y-4">
         {activeTab === "upcoming" && upcomingBookings.map((booking) => (
-          <div
+            <div
             key={booking.id}
             className="bg-card rounded-2xl p-4 shadow-soft border border-border"
           >
             <div className="flex gap-4 mb-4">
-              <div className="w-16 h-16 rounded-xl gradient-primary flex items-center justify-center text-3xl flex-shrink-0">
-                {booking.image}
+              <div className="w-16 h-16 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft">
+                <User className="w-8 h-8 text-white" />
               </div>
 
               <div className="flex-1 min-w-0">

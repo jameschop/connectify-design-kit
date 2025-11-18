@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Search, Send } from "lucide-react";
+import { ArrowLeft, Search, Send, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -17,7 +17,6 @@ const Messages = () => {
       lastMessage: "I'll be there at 10 AM tomorrow",
       time: "2h ago",
       unread: 2,
-      avatar: "👤",
     },
     {
       id: 2,
@@ -26,7 +25,6 @@ const Messages = () => {
       lastMessage: "Thanks for choosing my service!",
       time: "5h ago",
       unread: 0,
-      avatar: "👤",
     },
     {
       id: 3,
@@ -35,7 +33,6 @@ const Messages = () => {
       lastMessage: "What time works best for you?",
       time: "1d ago",
       unread: 1,
-      avatar: "👤",
     },
   ];
 
@@ -94,11 +91,11 @@ const Messages = () => {
               <button
                 key={chat.id}
                 onClick={() => setSelectedChat(chat.id)}
-                className="w-full p-4 rounded-2xl bg-card border border-border hover:border-primary transition-smooth text-left"
+                className="w-full p-4 rounded-2xl bg-card border border-border hover:border-primary transition-smooth text-left shadow-soft hover:shadow-medium"
               >
                 <div className="flex gap-4">
-                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center text-2xl flex-shrink-0">
-                    {chat.avatar}
+                  <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft">
+                    <User className="w-7 h-7 text-white" />
                   </div>
 
                   <div className="flex-1 min-w-0">

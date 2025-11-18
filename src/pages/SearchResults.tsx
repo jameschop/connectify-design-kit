@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Search, SlidersHorizontal, Star, MapPin } from "lucide-react";
+import { ArrowLeft, Search, SlidersHorizontal, Star, MapPin, User } from "lucide-react";
 
 const SearchResults = () => {
   const navigate = useNavigate();
@@ -68,11 +68,11 @@ const SearchResults = () => {
           <button
             key={provider.id}
             onClick={() => navigate(`/service/${provider.id}`)}
-            className="w-full p-4 rounded-2xl bg-card border border-border hover:border-primary transition-smooth text-left"
+            className="w-full p-4 rounded-2xl bg-card border border-border hover:border-primary transition-smooth text-left shadow-soft hover:shadow-medium"
           >
             <div className="flex gap-4">
-              <div className="w-20 h-20 rounded-xl gradient-primary flex items-center justify-center text-3xl flex-shrink-0">
-                👤
+              <div className="w-20 h-20 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft">
+                <User className="w-10 h-10 text-white" />
               </div>
 
               <div className="flex-1 min-w-0">
