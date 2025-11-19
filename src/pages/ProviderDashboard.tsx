@@ -55,7 +55,7 @@ const ProviderDashboard = () => {
               <span className="text-xs font-medium text-white">● Online</span>
             </div>
             <button
-              onClick={() => navigate("/profile")}
+              onClick={() => navigate("/profile/provider")}
               className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth"
             >
               <User className="w-6 h-6 text-white" />
@@ -127,7 +127,7 @@ const ProviderDashboard = () => {
             <div className="text-xs text-muted-foreground mt-1">₦234,500</div>
           </button>
           <button
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/profile/provider")}
             className="bg-card rounded-2xl p-4 text-left hover:shadow-medium transition-smooth border border-border"
           >
             <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center mb-3 shadow-soft">
@@ -199,7 +199,7 @@ const ProviderDashboard = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-card border-t border-border px-6 py-4">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-card/80 backdrop-blur-lg border-t border-border px-6 py-4">
         <div className="flex items-center justify-around">
           <button className="flex flex-col items-center gap-1 text-primary">
             <Home className="w-6 h-6" fill="currentColor" />
@@ -216,14 +216,14 @@ const ProviderDashboard = () => {
             onClick={() => navigate("/wallet/provider")}
             className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth"
           >
-            <TrendingUp className="w-6 h-6" />
+            <Wallet className="w-6 h-6" />
             <span className="text-xs font-medium">Wallet</span>
           </button>
           <button
             onClick={() => navigate("/settings")}
             className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-smooth"
           >
-            <span className="text-2xl">⚙️</span>
+            <Settings className="w-6 h-6" />
             <span className="text-xs font-medium">Settings</span>
           </button>
         </div>
