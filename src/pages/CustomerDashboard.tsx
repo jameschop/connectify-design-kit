@@ -78,7 +78,7 @@ const CustomerDashboard = () => {
             <p className="text-sm text-white/80 mt-1">What do you need today?</p>
           </div>
           <button
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/profile/customer")}
             className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth"
           >
             <User className="w-6 h-6 text-white" />
@@ -117,13 +117,16 @@ const CustomerDashboard = () => {
               <div className="text-xl font-bold text-foreground">4.8</div>
               <div className="text-xs text-muted-foreground">Rating</div>
             </div>
-            <div className="text-center">
+            <button 
+              onClick={() => navigate("/wallet/customer")}
+              className="text-center hover:scale-105 transition-smooth"
+            >
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-2">
                 <Wallet className="w-5 h-5 text-primary" />
               </div>
               <div className="text-xl font-bold text-foreground">₦45k</div>
               <div className="text-xs text-muted-foreground">Balance</div>
-            </div>
+            </button>
           </div>
         </div>
       </div>
@@ -228,7 +231,7 @@ const CustomerDashboard = () => {
             <span className="text-xs font-medium">Bookings</span>
           </button>
           <button
-            onClick={() => navigate("/wallet")}
+            onClick={() => navigate("/wallet/customer")}
             className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors group"
           >
             <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:bg-muted transition-smooth">

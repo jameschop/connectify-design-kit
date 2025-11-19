@@ -22,6 +22,7 @@ import Messages from "./pages/Messages";
 import ProviderWallet from "./pages/ProviderWallet";
 import CustomerWallet from "./pages/CustomerWallet";
 import Profile from "./pages/Profile";
+import CustomerProfile from "./pages/CustomerProfile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -52,7 +53,8 @@ const App = () => (
           <Route path="/messages" element={<Messages />} />
           <Route path="/wallet/provider" element={<ProviderWallet />} />
           <Route path="/wallet/customer" element={<CustomerWallet />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/provider" element={<Profile />} />
+          <Route path="/profile/customer" element={<CustomerProfile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
