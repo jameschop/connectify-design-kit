@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Calendar, Star, MapPin, Clock, Home, User, CalendarCheck, Wallet, MapPinned, BarChart3, MessageSquare, Bell, Settings } from "lucide-react";
+import { TrendingUp, Calendar, Star, MapPin, Clock, Home, User, CalendarCheck, Wallet, Settings, MessageSquare, Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -55,10 +55,24 @@ const ProviderDashboard = () => {
               <span className="text-xs font-medium text-white">● Online</span>
             </div>
             <button
-              onClick={() => navigate("/profile/provider")}
-              className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth"
+              onClick={() => navigate("/messages")}
+              className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth relative"
             >
-              <User className="w-6 h-6 text-white" />
+              <MessageSquare className="w-5 h-5 text-white" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full" />
+            </button>
+            <button
+              onClick={() => navigate("/notifications")}
+              className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth relative"
+            >
+              <Bell className="w-5 h-5 text-white" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full" />
+            </button>
+            <button
+              onClick={() => navigate("/profile/provider")}
+              className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-medium hover:bg-white/30 transition-smooth"
+            >
+              <User className="w-5 h-5 text-white" />
             </button>
           </div>
         </div>
